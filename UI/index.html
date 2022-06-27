@@ -2,7 +2,7 @@
 <!--
 Authors: Ramaguru Radhakrishnan
 Created Date: 03 May 2022
-Updated Date: 03 May 2022
+Updated Date: 28 June 2022
 Base Template: code-mentor.org and Glozzom Theme
 Description: Main Page for Tailing Dam Auditor
 -->
@@ -45,7 +45,16 @@ Description: Main Page for Tailing Dam Auditor
 		<b><u>Store</u></b> <br/><br/>
 		<form>
 			<table>
-			 <tr><td> Name : </td> <td> <input type="text" id="name" name="name"> </td></tr>
+			 <tr><td> UID : </td> <td> <input type="text" id="uid" name="uid"> </td></tr>
+			 <tr><td> Batch ID : </td> <td> <input type="text" id="batchid" name="batchid"> </td></tr>
+			 <tr><td> Grade : <select name="grade" id="grade">
+				  <option value="0">I</option>
+				  <option value="1">II</option>
+				  <option value="2">III</option>
+				  <option value="3">IV</option>
+				</select> </td></tr>
+			 <tr><td> GI Certificate ID : </td> <td> <input type="text" id="gicert" name="gicert"> </td></tr>
+			 <tr><td> Packaging Date : </td> <td> <input type="text" id="pkgdate" name="pkgdate"> </td></tr>
 			</table>
 			
 			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="result"></div></a> </h4>
@@ -54,8 +63,8 @@ Description: Main Page for Tailing Dam Auditor
 		<br/><br/>
 	<hr>
 		<b><u>View Details</u></b> <br/><br/>
-		Token ID : <input type="text" id="tokenIDd" name="tokenIDd"> <br/><br/>
-		<input type="button" onclick="view_certdetails()" value="View">
+		UI : <input type="text" id="uuid" name="uuid"> <br/><br/>
+		<input type="button" onclick="view_saffron()" value="View Saffron Details">
 		<table>
 		<tr><td>  </td> <td> <div id="image"></div> </td></tr>
 		</table>
@@ -98,8 +107,6 @@ Description: Main Page for Tailing Dam Auditor
 			console.log('Non-Ethereum browser detected. Please install MetaMask');
 			}
 			
-			loadstatus();
-			
 			});
 			
 			// Smart Contract ABI - Application Binary Interfaces
@@ -108,24 +115,22 @@ Description: Main Page for Tailing Dam Auditor
 				//Smart Contract Address
 				var contractaddress = '';			
 
-			// Function to call the "Store Index" in Deployed Smart Contract
-			function store_index() {
+			// Function to call the "Store Saffron Details" in Deployed Smart Contract
+			function store_saffron() {
 					
-				console.log("Store");
+				console.log("Store Saffron Details");
 						
 				//Instantiate and connect to contract address via ABI
 				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '50000000', gas: '5000000'});
 								
-				var name = document.getElementById("name").value;
-				var desgn = document.getElementById("desgn").value;
-				var inst = document.getElementById("inst").value;
-				var cID = document.getElementById("cID").value;
-				var address = document.getElementById("address").value;
-				var tokenID = document.getElementById("tokenID").value;
-				var ipfshash = document.getElementById("ipfshash").value;
+				var uid = document.getElementById("uid").value;
+				var batchid = document.getElementById("batchid").value;
+				var grade = document.getElementById("grade").value;
+				var gicert = document.getElementById("gicert").value;
+				var pkgdate = document.getElementById("pkgdate").value;
 				
 				//call the "store_index" function
-				var result = myContract.methods.store_index(address, name, tokenID, cID, desgn, inst, ipfshash).send(function (err, result) {
+				var result = myContract.methods.storeSaffron(uid, batchid, gicert, grade, pkgdate).send(function (err, result) {
 				
 				if (err) { console.log(err); }
 				if (result) { document.getElementById("result").innerHTML = result; }
@@ -134,18 +139,18 @@ Description: Main Page for Tailing Dam Auditor
 					
 			}
 			
-			// Function to call the "View Index" in Deployed Smart Contract
-			function view_index() {
+			// Function to call the "View Saffron Details" in Deployed Smart Contract
+			function view_saffron() {
 					
-				console.log("View");
+				console.log("View Saffron Details");
 						
 				//Instantiate and connect to contract address via ABI
 				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '50000000', gas: '5000000'});
 								
-				var tokenID = document.getElementById("tokenIDr").value;
+				var uuid = document.getElementById("uuid").value;
 				
 				//call the "View Index" function
-				var result = myContract.methods.view_index(tokenID).call(function (err, result) {
+				var result = myContract.methods.retrieveSaffron(uuid).call(function (err, result) {
 				
 				if (err) { console.log(err); }
 				if (result) { document.getElementById("cresult").innerHTML = result; }
