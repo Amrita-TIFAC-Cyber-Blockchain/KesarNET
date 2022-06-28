@@ -20,9 +20,9 @@ Blockchain for Saffron Trading
 ## SDG 
 
 <p align="center">
-    <img src="https://github.com/ramagururadhakrishnan/UN-SDG/blob/main/Assets/G8.png" width="150"/> 
-    <img src="https://github.com/ramagururadhakrishnan/UN-SDG/blob/main/Assets/G9.png" width="150"/> 
-    <img src="https://github.com/ramagururadhakrishnan/UN-SDG/blob/main/Assets/G10.png" width="150"/> 
+    <img src="https://ramagururadhakrishnan.github.io/UN-SDG/Assets/G8.png" width="200"/> 
+    <img src="https://ramagururadhakrishnan.github.io/UN-SDG/Assets/G9.png" width="200"/> 
+    <img src="https://ramagururadhakrishnan.github.io/UN-SDG/Assets/G10.png" width="200"/> 
 </p>   
 
 ## Publications
