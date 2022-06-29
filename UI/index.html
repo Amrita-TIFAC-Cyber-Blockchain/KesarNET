@@ -68,7 +68,10 @@ Description: Main Page for Tailing Dam Auditor
 		UI : <input type="text" id="uuid" name="uuid"> <br/><br/>
 		<input type="button" onclick="view_saffron()" value="View Saffron Details">
 		<table>
-		<tr><td>  </td> <td> <div id="image"></div> </td></tr>
+		<tr><td> </td> <td> <div id="rbatchid"></div> </td></tr>
+		<tr><td> </td> <td> <div id="rgrade"></div> </td></tr>
+		<tr><td> </td> <td> <div id="rgicert"></div> </td></tr>
+		<tr><td> </td> <td> <div id="rpkgdate"></div> </td></tr>
 		</table>
 	<hr>
 	
@@ -322,7 +325,11 @@ Description: Main Page for Tailing Dam Auditor
 				var result = myContract.methods.retrieveSaffron(uuid).call(function (err, result) {
 				
 				if (err) { console.log(err); }
-				if (result) { document.getElementById("cresult").innerHTML = result; }
+				if (result) { document.getElementById("rbatchid").innerHTML = result[0];
+					      document.getElementById("rgicert").innerHTML = result[1];
+					      document.getElementById("rgrade").innerHTML = result[2];
+					      document.getElementById("rpkgdate").innerHTML = result[3];
+					    }
 				
 				});
 				
