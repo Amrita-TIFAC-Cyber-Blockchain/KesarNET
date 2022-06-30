@@ -6,16 +6,79 @@ Blockchain for Saffron Trading
 
 ## Parameters
 
-| Parameter | Datatype | Storage |
-|:---------:|:--------:|:-------:|
-| Saffron Validation | Photo | IPFS -> Blockchain |
-| Product Image | Photo | IPFS -> Blockchain |
-| Brand Name | String | Blockchain |
-| Brand Logo | Photo | IPFS -> Blockchain |
-| Health Benefits | Document | IPFS -> Blockchain |
-| Sustainability Measures | Document | IPFS -> Blockchain |
-| Farmer Contact | Structure | Blockchain | 
-| Certificate | Document | IPFS -> Blockchain |
+### Saffron
+
+| Parameter | Description | Datatype | Storage | 
+|:---------:|:-----------:|:--------:|:-------:|
+| saffronID | Unique ID and saffron Details | Mapping | Blockchain |
+| sqCertificateID | Saffron Quality Certificate ID | String | Blockchain |
+| susCertificateID | Sustainability Certificate ID | String | Blockchain |
+
+### Sustainability Certificate
+
+| Parameter | Description | Datatype | Storage |
+|:---------:|:-----------:|:--------:|:-------:|
+| susCertist | Sustainability Certificate ID with Certificate Details | Mapping | Blockchain |
+| farmid | Farm ID | int | Blockchain |
+| farmeraddress | Farmer Wallet Address/DID | address | Blockchain |
+
+### Saffron Quality Certificate
+
+| Parameter | Description | Datatype | Storage |
+|:---------:|:-----------:|:--------:|:-------:|
+| sqCertList | Saffron Quality Certificate ID with Certificate Details | Mapping | Blockchain |
+| farmid | Farm ID | int | Blockchain |
+| farmeraddress | Farmer Wallet Address/DID | address | Blockchain |
+| batchID | Batch ID | int | Blockchain |
+| GICertID | GI Certificate ID | int | Blockchain |
+| grade | Grade | int | Blockchain |
+
+### Batch 
+
+| Parameter | Description | Datatype | Storage |
+|:---------:|:-----------:|:--------:|:-------:|
+| batchList | Batch ID with Details | Mapping | Blockchain |
+| pkg_date | Packaging Date | String | Blockchain |
+| batchimage | Batch Images |  Photo | IPFS |
+| ipfsHashPhoto | IPFS Hash of batchimage | String  | Blockchain| 
+
+### Farmer
+
+| Parameter | Description | Datatype | Storage |
+|:---------:|:-----------:|:--------:|:-------:|
+| farmerList | Farmer Wallet Address with Farmer Details | Mapping | Blockchain |
+| farmername | Farmer Name | String | Blockchain |
+| env_pkg_grade | Environmental - Package Grade | String | Blockchain |
+| env_pkg_grade_desc | Environmental Package Grade Description | String | Blockchain |
+| lat | Farmer's Latitude | string | Blockchain |
+| long | Farmer's Longitude | string | Blockchain |
+| state | State | string | Blockchain |
+
+### Farm 
+
+| Parameter | Description | Datatype | Storage |
+|:---------:|:-----------:|:--------:|:-------:|    
+| env_pest | Environmental - Pesticide | String | Blockchain |
+| env_pest_desc | Environmental - Pesticide Description | String | Blockchain |
+| env_insect | Environmental - Insectide | String | Blockchain |
+| env_insect_desc | Environmental - Insectide Description | String | Blockchain |
+| env_fung | Environmental - Fungicide | String | Blockchain |
+| env_fung_desc | Environmental - Fungicide Description | String | Blockchain |
+| env_pH_nearby | Environmental - pH of NearyBy Area | String | Blockchain |
+| env_pH_region | Environmental - Reference pH of the Region | String | Blockchain |
+| env_pH_desc | Environmental - pH Description | String | Blockchain |
+| env_co2_nearby | Environmental - Carbon Dioxide Emission of NearBy Area | String | Blockchain |
+| env_co2_region | Environmental - Reference Carbon Dioxide Emission of Region | String | Blockchain |
+| env_co2_desc | Environmental - Carbon Dioxide Emission Description | String | Blockchain |
+| env_n2_nearby | Environmental - Nitrogen Emission of NearBy Area | String | Blockchain |
+| env_n2_region | Environmental - Nitrogen Emission of Region | String | Blockchain |
+| env_n2_desc | Environmental - Nitrogen Emission Description | String | Blockchain |
+| water_irrigation | Water - Irrigation Type | int | Blockchain |
+| water_irrigation_desc | Water - Irrigation Description | String | Blockchain |
+| energy_powsrc | Energy - Power Source | int | Blockchain |
+| energy_powsrc_desc | Energy - Power Source Description | String | Blockchain |
+| gpi_ww | Gender Parity Index - Working Women Payment Status | int | Blockchain |
+| gpi_desc | Gender Parity Index - Payment Description | String | Blockchain |
 
 ## SDG 
 
