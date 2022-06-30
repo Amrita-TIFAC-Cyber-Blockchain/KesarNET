@@ -10,7 +10,7 @@ Blockchain for Saffron Trading
 
 | Parameter | Description | Datatype | Storage | 
 |:---------:|:-----------:|:--------:|:-------:|
-| saffronID | Unique ID and saffron Details | Mapping | Blockchain |
+| saffronPackID | Unique ID and saffron Details | Mapping | Blockchain |
 | sqCertificateID | Saffron Quality Certificate ID | String | Blockchain |
 | susCertificateID | Sustainability Certificate ID | String | Blockchain |
 
@@ -18,7 +18,7 @@ Blockchain for Saffron Trading
 
 | Parameter | Description | Datatype | Storage |
 |:---------:|:-----------:|:--------:|:-------:|
-| susCertist | Sustainability Certificate ID with Certificate Details | Mapping | Blockchain |
+| susCertList | Sustainability Certificate ID with Certificate Details | Mapping | Blockchain |
 | farmid | Farm ID | int | Blockchain |
 | farmeraddress | Farmer Wallet Address/DID | address | Blockchain |
 
@@ -52,7 +52,9 @@ Blockchain for Saffron Trading
 | env_pkg_grade_desc | Environmental Package Grade Description | String | Blockchain |
 | lat | Farmer's Latitude | string | Blockchain |
 | long | Farmer's Longitude | string | Blockchain |
-| state | State | string | Blockchain |
+| ipfsHashPhoto | Farmer's Photo | string | Blockchain |
+| phone | Farmer's Phone Number | string | Blockchain |
+| email | Farmer's Email | string | Blockchain |
 
 ### Farm 
 
